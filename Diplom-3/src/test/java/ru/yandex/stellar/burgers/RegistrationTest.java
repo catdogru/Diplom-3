@@ -1,5 +1,6 @@
 package ru.yandex.stellar.burgers;
 
+import io.qameta.allure.Description;
 import org.junit.Before;
 import org.junit.Rule;
 import org.junit.Test;
@@ -18,6 +19,7 @@ public class RegistrationTest {
     private RegistrationPage registrationPage;
 
     @Before
+    @Description("Open profile page from main page and check profile page loading")
     public void openRegistrationPage() {
         MainPage mainPage = openMainPage();
         LoginPage loginPage = mainPage.openProfileWithoutAuth();
@@ -26,12 +28,14 @@ public class RegistrationTest {
     }
 
     @Test
+    @Description("Fill user data, click register button and check login page loading")
     public void registeredSuccessfully() {
         LoginPage loginPage = registrationPage.register(DEFAULT_USER_NAME, generateRandomEmail(), DEFAULT_PASSWORD);
         loginPage.pageShouldBeLoaded();
     }
 
     @Test
+    @Description("Fill user data with short password, click register button and check error warning")
     public void shortPasswordShouldNotAllowRegistration() {
         registrationPage.register(DEFAULT_USER_NAME, generateRandomEmail(), SHORT_PASSWORD);
         registrationPage

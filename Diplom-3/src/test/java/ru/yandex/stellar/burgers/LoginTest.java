@@ -1,5 +1,6 @@
 package ru.yandex.stellar.burgers;
 
+import io.qameta.allure.Description;
 import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
@@ -37,6 +38,7 @@ public class LoginTest {
     }
 
     @Test
+    @Description("Open login page from main page, login and check redirection on main page")
     public void shouldLoginFromMainPageLoginButton() {
         MainPage mainPage = openMainPage();
         LoginPage loginPage = mainPage.clickLoginButton();
@@ -45,6 +47,7 @@ public class LoginTest {
     }
 
     @Test
+    @Description("Open login page from profile page, login and check redirection on main page")
     public void shouldLoginFromMainPageProfileButton() {
         MainPage mainPage = openMainPage();
         LoginPage loginPage = mainPage.openProfileWithoutAuth();
@@ -53,6 +56,7 @@ public class LoginTest {
     }
 
     @Test
+    @Description("Open login page from registration page, login and check redirection on main page")
     public void shouldLoginFromRegistrationPage() {
         RegistrationPage registrationPage = openRegistrationPage();
         LoginPage loginPage = registrationPage.clickLoginIfAlreadyRegisteredButton();
@@ -61,6 +65,7 @@ public class LoginTest {
     }
 
     @Test
+    @Description("Open login page from password recovery page, login and check redirection on main page")
     public void shouldLoginFromPasswordRecoveryPage() {
         PasswordRecoveryPage passwordRecoveryPage = openPasswordRecoveryPage();
         LoginPage loginPage = passwordRecoveryPage.clickLoginIfRememberPasswordButton();

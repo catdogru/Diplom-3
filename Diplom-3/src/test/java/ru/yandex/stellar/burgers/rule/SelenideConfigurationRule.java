@@ -20,6 +20,8 @@ public class SelenideConfigurationRule extends ExternalResource {
     public void applySelenideConfiguration() {
         // common configuration properties
         screenshots = false;
+        pageLoadTimeout = 90_000; // 30000 by default
+        timeout = 15_000; // 4000 by default
 
         // browser configuration properties
         switch (Browser.getBrowserByValue(getProperty(BROWSER_PROPERTY))) {

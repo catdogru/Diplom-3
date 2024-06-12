@@ -1,5 +1,6 @@
 package ru.yandex.stellar.burgers;
 
+import io.qameta.allure.Description;
 import org.junit.Before;
 import org.junit.Test;
 import ru.yandex.stellar.burgers.pages.MainPage;
@@ -17,6 +18,7 @@ public class BuilderTest {
     }
 
     @Test
+    @Description("Click on bun tab and check selection")
     public void bunTabShouldBeSelected() {
         mainPage
                 .clickOnBunTab()
@@ -25,6 +27,7 @@ public class BuilderTest {
     }
 
     @Test
+    @Description("Click on sauce tab and check selection")
     public void sauceTabShouldBeSelected() {
         mainPage
                 .clickOnSauceTab()
@@ -33,6 +36,7 @@ public class BuilderTest {
     }
 
     @Test
+    @Description("Click on filling tab and check selection")
     public void fillingTabShouldBeSelected() {
         mainPage
                 .clickOnFillingTab()

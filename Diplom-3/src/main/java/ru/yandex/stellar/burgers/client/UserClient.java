@@ -18,7 +18,7 @@ public class UserClient extends RestAssuredClient {
                 .when()
                 .post(CREATE_USER_PATH)
                 .then()
-                .log().all();
+                .log().ifError();
     }
 
     @Step
@@ -28,6 +28,6 @@ public class UserClient extends RestAssuredClient {
                 .when()
                 .delete(DELETE_USER_PATH)
                 .then()
-                .log().all();
+                .log().ifError();
     }
 }

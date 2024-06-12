@@ -1,5 +1,6 @@
 package ru.yandex.stellar.burgers;
 
+import io.qameta.allure.Description;
 import io.qameta.allure.Step;
 import org.junit.After;
 import org.junit.Before;
@@ -37,12 +38,14 @@ public class ProfileTest {
     }
 
     @Test
+    @Description("Open profile page from main page and check user profile email")
     public void shouldOpenProfileFromMainPage() {
         ProfilePage profilePage = MainPage.openMainPage().openProfileWithAuth();
         profilePage.getLoginInput().shouldHave(value(user.getEmail()));
     }
 
     @Test
+    @Description("Click builder button on profile page and check builder page loading")
     public void shouldOpenBuilderFromBuilderButton() {
         ProfilePage profilePage = MainPage.openMainPage().openProfileWithAuth().pageShouldBeLoaded();
         MainPage mainPage = profilePage.clickBuilderButton();
@@ -50,6 +53,7 @@ public class ProfileTest {
     }
 
     @Test
+    @Description("Click logo on profile page and check builder page loading")
     public void shouldOpenBuilderFromLogoClick() {
         ProfilePage profilePage = MainPage.openMainPage().openProfileWithAuth().pageShouldBeLoaded();
         MainPage mainPage = profilePage.clickLogoImage();
@@ -57,6 +61,7 @@ public class ProfileTest {
     }
 
     @Test
+    @Description("Click logout button on profile page and check login page loading")
     public void shouldLogoutFromProfile() {
         ProfilePage profilePage = MainPage.openMainPage().openProfileWithAuth();
         LoginPage loginPage = profilePage.clickLogoutButton();
