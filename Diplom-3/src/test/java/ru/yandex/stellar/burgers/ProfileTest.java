@@ -4,12 +4,14 @@ import io.qameta.allure.Description;
 import io.qameta.allure.Step;
 import org.junit.After;
 import org.junit.Before;
+import org.junit.Rule;
 import org.junit.Test;
 import ru.yandex.stellar.burgers.client.UserClient;
 import ru.yandex.stellar.burgers.model.user.UserData;
 import ru.yandex.stellar.burgers.pages.LoginPage;
 import ru.yandex.stellar.burgers.pages.MainPage;
 import ru.yandex.stellar.burgers.pages.ProfilePage;
+import ru.yandex.stellar.burgers.rule.SelenideConfigurationRule;
 import ru.yandex.stellar.burgers.service.check.UserCheck;
 
 import static com.codeborne.selenide.Condition.value;
@@ -19,6 +21,9 @@ import static ru.yandex.stellar.burgers.constants.Constants.Data.*;
 import static ru.yandex.stellar.burgers.pages.LoginPage.openLoginPage;
 
 public class ProfileTest {
+    @Rule
+    public SelenideConfigurationRule browserRule = new SelenideConfigurationRule();
+
     private final UserClient userClient = new UserClient();
     private final UserCheck userCheck = new UserCheck();
     private UserData user;
