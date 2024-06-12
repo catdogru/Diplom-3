@@ -5,7 +5,9 @@ import io.qameta.allure.Step;
 import org.openqa.selenium.support.FindBy;
 
 import static com.codeborne.selenide.Condition.visible;
+import static com.codeborne.selenide.Selenide.open;
 import static com.codeborne.selenide.Selenide.page;
+import static ru.yandex.stellar.burgers.constants.Constants.STELLAR_BURGER_LOGIN_URL;
 
 public class LoginPage {
     @FindBy(xpath = "//label[text() = 'Email']/parent::div/input")
@@ -19,6 +21,11 @@ public class LoginPage {
 
     @FindBy(xpath = "//a[@href = '/register']")
     private SelenideElement registerLink;
+
+    @Step
+    public static LoginPage openLoginPage() {
+        return open(STELLAR_BURGER_LOGIN_URL, LoginPage.class);
+    }
 
     @Step("Wait login page loading")
     public LoginPage pageShouldBeLoaded() {

@@ -37,7 +37,8 @@ public class MainPage {
         return page(LoginPage.class);
     }
 
-    public ProfilePage openProfileButton() {
+    @Step("Open profile as authorized user")
+    public ProfilePage openProfileWithAuth() {
         profileLink.click();
         return page(ProfilePage.class);
     }
