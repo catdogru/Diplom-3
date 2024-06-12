@@ -24,7 +24,6 @@ public class SelenideConfigurationRule extends ExternalResource {
         timeout = 15_000; // 4000 by default
 
         // browser configuration properties
-        System.out.println("sout" + Browser.getBrowserByValue(getProperty(BROWSER_PROPERTY)));
         switch (Browser.getBrowserByValue(getProperty(BROWSER_PROPERTY))) {
             case YANDEX_BROWSER:
                 browser = CHROME_BROWSER.getValue();
